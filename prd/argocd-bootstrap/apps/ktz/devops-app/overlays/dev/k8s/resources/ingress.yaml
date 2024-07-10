@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kartoza-devops-app-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: kartoza-vault-issuer
+    cert-manager.io/common-name: kartoza-devops-app.dev.do.kartoza.com
+  labels:
+    external-dns-exclude: "true"
+spec:
+  ingressClassName: internal-nginx
+  rules:
+    - host: kartoza-devops-app.dev.do.kartoza.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: kartoza-devops-app
+                port:
+                  number: 80
+  tls:
+   - hosts:
+       - kartoza-devops-app.dev.do.kartoza.com
+     secretName: kartoza-devops-app.dev.do.kartoza.com-tls

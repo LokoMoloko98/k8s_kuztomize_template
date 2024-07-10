@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kartoza-devops-app
-  namespace: kartoza-devops
 spec:
   replicas: 1
   selector:
@@ -12,9 +11,4 @@ spec:
     metadata:
       labels:
         app: kartoza-devops-app
-    spec:
-      containers:
-        - name: kartoza-devops-app
-          image: lokomoloko98/kartoza-dev:kartoza_devops_app_0.0.1
-          ports:
-            - containerPort: 8501
+
