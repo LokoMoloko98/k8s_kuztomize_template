@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: headlamp-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: kartoza-vault-issuer
+    cert-manager.io/common-name: headlamp.dev.do.kartoza.com
+  labels:
+    external-dns-exclude: "true"
+spec:
+  ingressClassName: internal-nginx
+  rules:
+    - host: headlamp.dev.do.kartoza.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: headlamp
+                port:
+                  number: 80
+  tls:
+   - hosts:
+       - headlamp.dev.do.kartoza.com
+     secretName: headlamp.dev.do.kartoza.com-tls

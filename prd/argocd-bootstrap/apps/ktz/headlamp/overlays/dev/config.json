@@ -1,0 +1,12 @@
+{
+    "appName": "headlamp",
+    "userGivenName": "headlamp",
+    "destNamespace": "headlamp",
+    "destServer": "https://f29dfe37-4221-4641-b2c3-d7ee834bbca2.k8s.ondigitalocean.com",
+    "srcPath": "argocd/prd/argocd-bootstrap/apps/ktz/devops-app/overlays/dev",
+    "srcRepoURL": "https://github.com/kartoza/kartoza-devops.git",
+    "srcTargetRevision": "",
+    "labels": null,
+    "annotations": null
+  }
+  
