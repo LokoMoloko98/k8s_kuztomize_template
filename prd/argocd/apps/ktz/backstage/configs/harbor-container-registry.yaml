@@ -1,0 +1,10 @@
+#apiVersion: v1
+#kind: Secret
+#metadata:
+#  annotations:
+#    digitalocean.com/dosecret-identifier: registry-kartoza-app
+#    avp.kubernetes.io/path: "devops/data/argocd/harbor_container_registry_robot"
+#  name: registry-kartoza-app
+#type: kubernetes.io/dockerconfigjson
+#data:
+#  .dockerconfigjson: <data>
